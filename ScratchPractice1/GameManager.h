@@ -3,7 +3,7 @@
 class GameManager
 {
 private:
-	int board[9] = { 0 };
+	int board[9] = { 0 }; // Is this reset anywhere?  How does game 2 work?
 	bool cellLock[9] = {};
 	int selection;
 	int player;
