@@ -30,7 +30,7 @@ int GameManager::StartTurn()
 			std::cin.ignore(std::numeric_limits<int>::max(), '\n');
 			std::cout << "Please pick a number from 1 to 9!!" << std::endl;
 		}
-		else if ((selection < 1) | (selection > 9))
+		else if ((selection < 1) | (selection > 9)) // https://codeburst.io/software-anti-patterns-magic-numbers-7bc484f40544
 		{
 			std::cout << "Please pick a number from 1 to 9!!" << std::endl;
 		}
@@ -53,20 +53,27 @@ int GameManager::StartTurn()
 
 void GameManager::PrintBoard() 
 {
-	std::cout << std::endl << " " << numToChar(board[0]) << " " << "|" << " " << numToChar(board[1]) << " " << "|" << " " << numToChar(board[2]) << std::endl
-		<< " -   -   - " << std::endl << " " << numToChar(board[3]) << " " << "|" << " " << numToChar(board[4]) << " " << "|" << " " << numToChar(board[5]) << std::endl
-		<< " -   -   - " << std::endl << " " << numToChar(board[6]) << " " << "|" << " " << numToChar(board[7]) << " " << "|" << " " << numToChar(board[8]) << std::endl;
+	// Define LINE_COUNT somewhere, either #define or "static const"
+	// Define CELLS_PER_LINE 
+	// for ( line = 0; line < LINECOUNT; ++line)
+	std::cout << std::endl << " " 
+		<< numToChar(board[0]) << " " << "|" << " " << numToChar(board[1]) << " " << "|" << " " << numToChar(board[2]) << std::endl // make me a function called print numbers or whatever, pass in line 0 * CELLS_PER_LINE
+		<< " -   -   - " << std::endl << " "  // make me a function and call me print spacer
+		<< numToChar(board[3]) << " " << "|" << " " << numToChar(board[4]) << " " << "|" << " " << numToChar(board[5]) << std::endl // make me a function called print numbers or whatever, pass in line 1 * CELLS_PER_LINE
+		<< " -   -   - " << std::endl << " " // call print spacer function
+		<< numToChar(board[6]) << " " << "|" << " " << numToChar(board[7]) << " " << "|" << " " << numToChar(board[8]) << std::endl;// make me a function called print numbers or whatever, pass in line 2 * CELLS_PER_LINE
 	return;
 }
 
 int GameManager::Winner()
 {
-	for (int i = 0; i < 9; i++) 
+	for (int i = 0; i < 9; i++)  // Majik
 	{
 		if (board[i] == 0) { tieGame = false;  break; }
 		
 	}
 	if (tieGame) { return 3; }
+	// this looks like a horrible block, can you make this a function or algorithm instead of hand coding the options?
 	if ((board[0] == board[1]) && (board[0] == board[2])) { return board[0]; }
 	if ((board[0] == board[3]) && (board[0] == board[6])) { return board[0]; }
 	if ((board[0] == board[4]) && (board[0] == board[8])) { return board[0]; }
@@ -81,7 +88,7 @@ char GameManager::numToChar(int val)
 {
 	switch (val)
 	{
-		case 0:
+		case 0: // majik
 			return '~';
 		case 1:
 			return 'X';
