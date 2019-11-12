@@ -35,8 +35,14 @@ bool Start() {
 		std::cin >> again;
 			
 	}
-	if (again == 'y') { return true; }
-	else { return false; }
+	if (again == 'y') 
+	{ 
+		return true; 
+	}
+	else 
+	{ 
+		return false; 
+	}
 }
 
 int main() {

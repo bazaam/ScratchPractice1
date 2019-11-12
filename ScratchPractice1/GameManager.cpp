@@ -63,7 +63,11 @@ int GameManager::Winner()
 {
 	for (int i = 0; i < 9; i++) 
 	{
-		if (board[i] == 0) { tieGame = false;  break; }
+		if (board[i] == 0) 
+		{ 
+			tieGame = false;
+			break; 
+		}
 		
 	}
 	if (tieGame) { return 3; }
