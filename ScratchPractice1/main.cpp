@@ -1,13 +1,13 @@
 #include <iostream>
 #include "GameManager.h"
 
-bool Start() {
+bool Start() { // Naming this start doesnt really make sense, maybe "RunGame"?
 	char again = 'q';
 	GameManager newGame;
 
 	while (newGame.Winner() == 0)
 	{
-		newGame.StartTurn();
+		newGame.StartTurn(); 
 	}
 	switch (newGame.Winner())
 	{
@@ -26,7 +26,7 @@ bool Start() {
 	std::cout << "Would you like to play again? (y/n)";
 	std::cin >> again;
 
-	while (again != 'y' && again != 'n')
+	while (again != 'y' && again != 'n') // good job only allowing y&n and handling weird input
 	{
 		std::cin.clear();
 		std::cin.ignore(std::numeric_limits<char>::max(), '\n');
