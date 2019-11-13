@@ -1,7 +1,8 @@
 #include <iostream>
 #include "GameManager.h"
 
-bool Start() {
+bool Start() 
+{
 	char again = 'q';
 	GameManager newGame;
 
@@ -45,8 +46,11 @@ bool Start() {
 	}
 }
 
-int main() {
-	while (Start()) {}
+int main() 
+{
+	while (Start()) 
+	{
+	}
 	std::cout << "Thanks for playing! Press any key to exit" << std::endl;
 	system("pause");
 }
